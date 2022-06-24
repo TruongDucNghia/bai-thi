@@ -1,0 +1,32 @@
+<h1>List products</h1>
+
+<a routerLink="add">Add</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>price</th>
+            <th>image</th>
+            <th>description</th>
+            <th>setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <img src={{item.img}} alt="" width="200px">
+            </td>
+            <td>{{item.desc}}</td>
+            <td>
+                <a routerLink="{{item.id}}/edit">
+                    <button class="btn btn-info">Update</button>
+                </a>
+                <button (click)="onDelete(item.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
